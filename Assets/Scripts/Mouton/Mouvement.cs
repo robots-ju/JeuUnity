@@ -20,22 +20,18 @@ public class Mouvement : MonoBehaviour
     void Update()
     {
         float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
+        
+        rigidbody2DMouton.velocity = new Vector2(inputX * walkSpeed,0);
 
-        float mouvement = 0;
+        Vector2 castStartPosi = transform.position;
+        castStartPosi.y -= transform.localScale.y;
 
-        if (inputX != 0) {
-            mouvement = inputX * walkSpeed * Time.deltaTime;
-        }
-
-        if (Physics2D.Raycast(transform.position, Vector2.down, 0.1F)) {
-            if (inputY == 1) {
+        float jump = Input.GetAxis("Jump");
+        if (jump != 0) {
+            if (Physics2D.Raycast(castStartPosi, Vector2.down, 0.001f)) {
                 rigidbody2DMouton.AddForce(new Vector2(0, Mathf.Sqrt(-2 * Physics2D.gravity.y * jumpForce)));
             }
         }
-
-        rigidbody2DMouton.MovePosition(new Vector2(mouvement, 0));
-        
     }
 
 }
