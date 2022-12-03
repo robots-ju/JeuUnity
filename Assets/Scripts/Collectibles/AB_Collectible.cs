@@ -2,29 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(BoxCollider2D))]
 public abstract class AB_Collectible : MonoBehaviour
 {
-    private AudioSource audioSource;
+    [SerializeField]
+    protected AudioClip pickUpSound;
 
-    void Start() {
-        audioSource = GetComponent<AudioSource>();
+    void Reset() {
         GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
-    private void OnTriggerEnter(Collider other) {
-        Debug.Log("Bonjour");
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
-            Debug.Log("HIT");
             Collect(other.gameObject);
         }
     }
 
     protected void Collect(GameObject playerObject) {
-        audioSource.Play();
-        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
         ApplyEffect(playerObject);
+        Destroy(gameObject);
     }
 
     abstract protected void ApplyEffect(GameObject playerObject);
