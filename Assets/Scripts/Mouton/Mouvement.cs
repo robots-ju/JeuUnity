@@ -28,7 +28,6 @@ public class Mouvement : MonoBehaviour
         lowerCenter.y -= transform.localScale.y/2f;
         Vector2 lowerLeft = new Vector2(lowerCenter.x - (transform.localScale.x + 0.1f), lowerCenter.y);
         Vector2 lowerRight = new Vector2(lowerCenter.x + (transform.localScale.x + 0.1f), lowerCenter.y);
-
         
         float jump = Input.GetAxis("Jump");
     
