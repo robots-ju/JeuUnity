@@ -7,11 +7,14 @@ public class Mouvement : MonoBehaviour
 
     // Paramètres
     [SerializeField]
+    [Tooltip("Vitesse de déplacement du mouton")]
     private int walkSpeed = 10;
     [SerializeField]
     [Range(0, 1000)]
+    [Tooltip("Hauteur du saut du mouton")]
     private int jumpHeight = 100;
     [SerializeField]
+    [Tooltip("Délai minimum entre deux sauts")]
     private float jumpDelay = 0.1f;
 
     // Variables
@@ -32,31 +35,43 @@ public class Mouvement : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         rigidbody2DMouton.velocity = new Vector2(inputX * walkSpeed,rigidbody2DMouton.velocity.y);
 
-        // Atterissage
+        // Lors du contact avec le sol après un saut
         if (jumping && isGrounded())
         {
+            // Compter le temps passé depuis l'atterissage
             groundTime += Time.deltaTime;
-            if (groundTime > jumpDelay)
+            if (groundTime > jumpDelay) // Si le temps est supérieur au délai de saut
             {
+                // Reset les valeurs de saut
                 groundTime = 0;
                 jumping = false;
             }
         }
 
-        if (!jumping && Input.GetAxis("Jump") != 0 && isGrounded()) {
+        // Saut
+        if (!jumping && Input.GetAxis("Jump") != 0 && isGrounded()) { // Si le mouton peut sauter
             jumping = true;
             rigidbody2DMouton.AddForce(new Vector2(0, jumpForce()));
         }
     }
 
+    /**
+    * Vérifie si le mouton est au sol
+    */
     private bool isGrounded() {
+        // Trouver les coins inférieurs du mouton
         Vector2 lowerCenter = transform.position;
         lowerCenter.y -= transform.localScale.y/2f;
         Vector2 lowerLeft = new Vector2(lowerCenter.x - (transform.localScale.x + 0.1f), lowerCenter.y);
         Vector2 lowerRight = new Vector2(lowerCenter.x + (transform.localScale.x + 0.1f), lowerCenter.y);
+
+        // Vérifier si le mouton touche le sol
         return Physics2D.Raycast(lowerLeft, Vector2.down, 0.1f) || Physics2D.Raycast(lowerRight, Vector2.down, 0.1f);
     }
 
+    /**
+    * Calcul la force nécessaire pour atteindre la hauteur de saut souhaité
+    */
     private float jumpForce() {
         float adaptedJumpHeight = jumpHeight * 100;
         return Mathf.Sqrt(-2 * Physics2D.gravity.y * adaptedJumpHeight * rigidbody2DMouton.gravityScale);
