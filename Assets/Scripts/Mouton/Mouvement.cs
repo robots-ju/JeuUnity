@@ -20,12 +20,14 @@ public class Mouvement : MonoBehaviour
     // Variables
     private float groundTime = 0;
     Rigidbody2D rigidbody2DMouton;
+    SpriteRenderer sr;
     private bool jumping = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2DMouton = GetComponent<Rigidbody2D>();
+        sr = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class Mouvement : MonoBehaviour
         // Déplacement sur l'axe x
         float inputX = Input.GetAxis("Horizontal");
         rigidbody2DMouton.velocity = new Vector2(inputX * walkSpeed,rigidbody2DMouton.velocity.y);
+        sr.flipX = rigidbody2DMouton.velocity.x < 0;
 
         // Lors du contact avec le sol après un saut
         if (jumping && isGrounded())
