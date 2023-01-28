@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 524265670}
   - component: {fileID: 524265669}
   - component: {fileID: 524265668}
+  - component: {fileID: 524265671}
   m_Layer: 0
   m_Name: Mouton
   m_TagString: Untagged
@@ -415,6 +416,19 @@ MonoBehaviour:
   walkSpeed: 10
   jumpHeight: 100
   jumpDelay: 0.1
+--- !u!114 &524265671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524265666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53a5de9b02a204891c214ab048b6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRotation: 45
 --- !u!1 &1876289595
 GameObject:
   m_ObjectHideFlags: 0
