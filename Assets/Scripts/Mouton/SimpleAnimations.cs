@@ -9,14 +9,23 @@ public class SimpleAnimations : MonoBehaviour
     [Tooltip("Angle maximum de rotation du mouton lors d'un saut ou d'une chute")]
     private float maxRotation = 25f;
 
+    [SerializeField]
+    [Tooltip("image utilisée pour le saut")]
+    private Sprite jumpSprite;
+
     private Rigidbody2D rb;
     private Mouvement playerMouvement;
+    private SpriteRenderer spriteRenderer;
+
+    private Sprite originalSprite;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerMouvement = GetComponent<Mouvement>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        originalSprite = spriteRenderer.sprite;
     }
 
     // Update is called once per frame
@@ -24,6 +33,7 @@ public class SimpleAnimations : MonoBehaviour
     {
         freeFallAnim();
         
+        jumpAnimation();
     }
 
     private void freeFallAnim() {
@@ -46,5 +56,15 @@ public class SimpleAnimations : MonoBehaviour
         }
 
         
+    }
+
+    private void jumpAnimation(){
+        if(playerMouvement.isGrounded()){
+            // Set the sprite
+            spriteRenderer.sprite = originalSprite;// oroginal sprite;
+        } else {
+            // Set the sprite
+            spriteRenderer.sprite = jumpSprite;
+        }
     }
 }
