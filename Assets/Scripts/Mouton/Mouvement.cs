@@ -5,6 +5,8 @@ using UnityEngine;
 public class Mouvement : MonoBehaviour
 {
 
+    private const int layerMask = 1 << 8; // Layer 8 = Ground
+
     // Paramètres
     [SerializeField]
     [Tooltip("Vitesse de déplacement du mouton")]
@@ -69,7 +71,7 @@ public class Mouvement : MonoBehaviour
         Vector2 lowerRight = new Vector2(lowerCenter.x + (transform.localScale.x + 0.1f), lowerCenter.y);
 
         // Vérifier si le mouton touche le sol
-        return Physics2D.Raycast(lowerLeft, Vector2.down, 0.1f) || Physics2D.Raycast(lowerRight, Vector2.down, 0.1f);
+        return Physics2D.Raycast(lowerLeft, Vector2.down, 0.1f, layerMask) || Physics2D.Raycast(lowerRight, Vector2.down, 0.1f, layerMask);
     }
 
     /**
