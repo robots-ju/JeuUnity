@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1132468855528065758}
-  - component: {fileID: 672800192608222675}
   - component: {fileID: 5540786942228704306}
   - component: {fileID: 3270547966737267603}
+  - component: {fileID: 672800192608222675}
   - component: {fileID: 4641462410955688816}
   - component: {fileID: 5973946167072995554}
   m_Layer: 0
@@ -37,21 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &672800192608222675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480035008263694988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 783a5c0129bd13040bc920fcdaf64924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 10
-  jumpHeight: 100
-  jumpDelay: 0.1
 --- !u!61 &5540786942228704306
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -99,6 +84,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &672800192608222675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480035008263694988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783a5c0129bd13040bc920fcdaf64924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 10
+  jumpHeight: 100
+  jumpDelay: 0.1
 --- !u!114 &4641462410955688816
 MonoBehaviour:
   m_ObjectHideFlags: 0
