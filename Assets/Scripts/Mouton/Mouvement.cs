@@ -54,14 +54,14 @@ public class Mouvement : MonoBehaviour
         // Saut
         if (!jumping && Input.GetAxis("Jump") != 0 && isGrounded()) { // Si le mouton peut sauter
             jumping = true;
-            rigidbody2DMouton.AddForce(new Vector2(0, jumpForce()));
+            rigidbody2DMouton.AddForce(new Vector2(0, getJumpForce()));
         }
     }
 
     /**
     * Vérifie si le mouton est au sol
     */
-    private bool isGrounded() {
+    public bool isGrounded() {
         // Trouver les coins inférieurs du mouton
         Vector2 lowerCenter = transform.position;
         lowerCenter.y -= transform.localScale.y/2f;
@@ -75,8 +75,15 @@ public class Mouvement : MonoBehaviour
     /**
     * Calcul la force nécessaire pour atteindre la hauteur de saut souhaité
     */
-    private float jumpForce() {
+    private float getJumpForce() {
         float adaptedJumpHeight = jumpHeight * 100;
         return Mathf.Sqrt(-2 * Physics2D.gravity.y * adaptedJumpHeight * rigidbody2DMouton.gravityScale);
+    }
+
+    /**
+    * Calcul la vitesse nécessaire pour atteindre la hauteur de saut souhaité
+    */
+    public float getJumpVelocity() {
+        return (getJumpForce()/rigidbody2DMouton.mass)*Time.fixedDeltaTime;
     }
 }

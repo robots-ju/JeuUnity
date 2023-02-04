@@ -9,11 +9,6 @@ public class SimpleAnimations : MonoBehaviour
     [Tooltip("Angle maximum de rotation du mouton lors d'un saut ou d'une chute")]
     private float maxRotation = 25f;
 
-    [SerializeField]
-    [Range(0, 1)]
-    [Tooltip("Distance à partir de laquelle le mouton commence à se remettre droit")]
-    private float groundRotateDistance = 1f;
-
     private Rigidbody2D rb;
     private Mouvement playerMouvement;
 
@@ -28,8 +23,6 @@ public class SimpleAnimations : MonoBehaviour
     void Update()
     {
         freeFallAnim();
-
-        
         
     }
 
