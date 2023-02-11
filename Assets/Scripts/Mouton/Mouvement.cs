@@ -86,4 +86,8 @@ public class Mouvement : MonoBehaviour
     public float getJumpVelocity() {
         return (getJumpForce()/rigidbody2DMouton.mass)*Time.fixedDeltaTime;
     }
+
+    public Vector2 getVelocity() {
+        return rigidbody2DMouton.velocity;
+    }
 }
