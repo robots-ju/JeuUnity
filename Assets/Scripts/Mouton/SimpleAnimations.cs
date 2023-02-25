@@ -5,9 +5,9 @@ using UnityEngine;
 public class SimpleAnimations : MonoBehaviour
 {
     [SerializeField]
-    [Range(0, 90)]
+    [Range(0, 360)]
     [Tooltip("Angle maximum de rotation du mouton lors d'un saut ou d'une chute")]
-    private float maxRotation = 25f;
+    private float maxRotation = 360f;
 
     [SerializeField]
     [Tooltip("image utilisée pour le saut")]
@@ -16,6 +16,7 @@ public class SimpleAnimations : MonoBehaviour
     private Rigidbody2D rb;
     private Mouvement playerMouvement;
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     private Sprite originalSprite;
 
@@ -25,6 +26,7 @@ public class SimpleAnimations : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerMouvement = GetComponent<Mouvement>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
         originalSprite = spriteRenderer.sprite;
     }
 
@@ -33,19 +35,22 @@ public class SimpleAnimations : MonoBehaviour
     {
         freeFallAnim();
         
-        jumpAnimation();
+        walkWaitAnimation();
     }
 
     private void freeFallAnim() {
         /* Falling + jumping animation */
         float newRotation = 0;
         if (!playerMouvement.isGrounded()) { // Si le joueur est en l'air
+            animator.SetBool("isJumping", true);
             float yVel = rb.velocity.y; // Vitesse verticale actuelle
             float jumpVelocity = playerMouvement.getJumpVelocity(); // Vitesse verticale par saut
 
             // Calculer la nouvelle rotation
             newRotation = yVel / jumpVelocity * maxRotation;
     
+        } else {
+            animator.SetBool("isJumping", false);
         }
 
         // Appliquer la rotation
@@ -53,18 +58,14 @@ public class SimpleAnimations : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, -newRotation);
         } else { // Si le joueur se déplace vers la droite
             transform.rotation = Quaternion.Euler(0, 0, newRotation);
-        }
-
-        
+        }        
     }
 
-    private void jumpAnimation(){
-        if(playerMouvement.isGrounded()){
-            // Set the sprite
-            spriteRenderer.sprite = originalSprite;// oroginal sprite;
-        } else {
-            // Set the sprite
-            spriteRenderer.sprite = jumpSprite;
+    private void walkWaitAnimation(){
+        if (playerMouvement.getVelocity().x != 0) { // Si le joueur se déplace
+            animator.SetBool("isWalking", true);
+        } else { // Si le joueur ne se déplace pas
+            animator.SetBool("isWalking", false);
         }
     }
 }
