@@ -15,19 +15,14 @@ public class SimpleAnimations : MonoBehaviour
 
     private Rigidbody2D rb;
     private Mouvement playerMouvement;
-    private SpriteRenderer spriteRenderer;
     private Animator animator;
-
-    private Sprite originalSprite;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerMouvement = GetComponent<Mouvement>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
-        originalSprite = spriteRenderer.sprite;
     }
 
     // Update is called once per frame
