@@ -9,10 +9,6 @@ public class SimpleAnimations : MonoBehaviour
     [Tooltip("Angle maximum de rotation du mouton lors d'un saut ou d'une chute")]
     private float maxRotation = 360f;
 
-    [SerializeField]
-    [Tooltip("image utilisée pour le saut")]
-    private Sprite jumpSprite;
-
     private Rigidbody2D rb;
     private Mouvement playerMouvement;
     private Animator animator;
