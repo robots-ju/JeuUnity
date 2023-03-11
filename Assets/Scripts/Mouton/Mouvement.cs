@@ -5,7 +5,8 @@ using UnityEngine;
 public class Mouvement : MonoBehaviour
 {
 
-    private const int layerMask = 1 << 8; // Layer 8 = Ground
+    private const int groundLayerMask = 1 << 8; // Layer 8 = Ground
+    private const int groundWallLayerMask = groundLayerMask | (1 << 9);
 
     // Paramètres
     [SerializeField]
@@ -39,6 +40,8 @@ public class Mouvement : MonoBehaviour
     {
         // Déplacement sur l'axe x
         float inputX = Input.GetAxis("Horizontal");
+        Vector2 movement = new Vector2(inputX * walkSpeed,rigidbody2DMouton.velocity.y);
+        
         rigidbody2DMouton.velocity = new Vector2(inputX * walkSpeed,rigidbody2DMouton.velocity.y);
         sr.flipX = rigidbody2DMouton.velocity.x < 0;
 
@@ -74,7 +77,7 @@ public class Mouvement : MonoBehaviour
         Vector2 lowerRightRayOrigin = new Vector2(lowerCenter.x - (bounds.extents.x / 2), lowerCenter.y);
 
         // Vérifier si le mouton touche le sol
-        return Physics2D.Raycast(lowerLeftRayOrigin, Vector2.down, 0.1f, layerMask) || Physics2D.Raycast(lowerRightRayOrigin, Vector2.down, 0.1f, layerMask);
+        return Physics2D.Raycast(lowerLeftRayOrigin, Vector2.down, 0.1f, groundLayerMask) || Physics2D.Raycast(lowerRightRayOrigin, Vector2.down, 0.1f, groundLayerMask);;
     }
 
     /**
