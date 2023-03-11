@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 672800192608222675}
   - component: {fileID: 4641462410955688816}
   - component: {fileID: 5973946167072995554}
+  - component: {fileID: 5806038439935677821}
+  - component: {fileID: 3366077355723720502}
   m_Layer: 0
   m_Name: Le mouton
   m_TagString: Player
@@ -122,6 +124,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6bac3a236df5ce469d90c2fffa739bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinCounterTextObject: {fileID: 0}
+--- !u!114 &5806038439935677821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480035008263694988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fc0c536cdb4ca4d8acf639e4fee6fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerTextObject: {fileID: 0}
+--- !u!114 &3366077355723720502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480035008263694988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d65488ba8f249344a1a27c56c461630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &680382892234376663
