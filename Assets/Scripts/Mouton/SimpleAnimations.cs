@@ -12,6 +12,7 @@ public class SimpleAnimations : MonoBehaviour
     private Rigidbody2D rb;
     private Mouvement playerMouvement;
     private Animator animator;
+    private Transform body;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class SimpleAnimations : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerMouvement = GetComponent<Mouvement>();
         animator = GetComponentInChildren<Animator>();
+        body = transform.GetChild(0);
     }
 
     // Update is called once per frame
@@ -46,9 +48,9 @@ public class SimpleAnimations : MonoBehaviour
 
         // Appliquer la rotation
         if (rb.velocity.x < 0) { // Si le joueur se déplace vers la gauche
-            transform.rotation = Quaternion.Euler(0, 0, -newRotation);
+            body.rotation = Quaternion.Euler(0, 0, -newRotation);
         } else { // Si le joueur se déplace vers la droite
-            transform.rotation = Quaternion.Euler(0, 0, newRotation);
+            body.rotation = Quaternion.Euler(0, 0, newRotation);
         }        
     }
 
