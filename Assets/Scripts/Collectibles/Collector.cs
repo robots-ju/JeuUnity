@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Collector : MonoBehaviour
 {
+    int coinCount = 0;
+
+    [SerializeField]
+    private GameObject coinCounterTextObject;
+
+    private TMPro.TextMeshProUGUI coinCounterText;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        coinCounterText = coinCounterTextObject.GetComponent<TMPro.TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -17,6 +24,7 @@ public class Collector : MonoBehaviour
     }
 
     public void addCoin() {
-        Debug.Log("Coin collected");
+        coinCount++;
+        coinCounterText.text = "Score : " + coinCount.ToString();
     }
 }
