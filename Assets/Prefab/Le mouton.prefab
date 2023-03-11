@@ -96,8 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694e40c1826573e4680ab760c61c36c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRotation: 360
-  jumpSprite: {fileID: 0}
+  maxRotation: 37
 --- !u!114 &4641462410955688816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 10
-  jumpHeight: 100
+  jumpHeight: 150
   jumpDelay: 0.1
 --- !u!114 &5973946167072995554
 MonoBehaviour:
@@ -220,7 +219,7 @@ Animator:
   m_GameObject: {fileID: 680382892234376663}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6e3121707faafb4fbff1e91bfe8d9b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: ac4e876f43fe488438767e5b488c88b7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
