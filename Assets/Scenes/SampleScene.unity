@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b4a46db604382fe4ea2996292dafb59a, type: 3}
+      objectReference: {fileID: 21300000, guid: 70743f84039d69d408921f1a6bd2e5fe, type: 3}
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -203,7 +203,7 @@ PrefabInstance:
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b4a46db604382fe4ea2996292dafb59a, type: 3}
+      objectReference: {fileID: 21300000, guid: 70743f84039d69d408921f1a6bd2e5fe, type: 3}
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -590,7 +590,7 @@ PrefabInstance:
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b4a46db604382fe4ea2996292dafb59a, type: 3}
+      objectReference: {fileID: 21300000, guid: 70743f84039d69d408921f1a6bd2e5fe, type: 3}
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -744,7 +744,7 @@ PrefabInstance:
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b4a46db604382fe4ea2996292dafb59a, type: 3}
+      objectReference: {fileID: 21300000, guid: 70743f84039d69d408921f1a6bd2e5fe, type: 3}
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -819,7 +819,7 @@ PrefabInstance:
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b4a46db604382fe4ea2996292dafb59a, type: 3}
+      objectReference: {fileID: 21300000, guid: 70743f84039d69d408921f1a6bd2e5fe, type: 3}
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -1027,7 +1027,7 @@ PrefabInstance:
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b4a46db604382fe4ea2996292dafb59a, type: 3}
+      objectReference: {fileID: 21300000, guid: 70743f84039d69d408921f1a6bd2e5fe, type: 3}
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -1127,7 +1127,7 @@ PrefabInstance:
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b4a46db604382fe4ea2996292dafb59a, type: 3}
+      objectReference: {fileID: 21300000, guid: 70743f84039d69d408921f1a6bd2e5fe, type: 3}
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b4a46db604382fe4ea2996292dafb59a, type: 3}
+      objectReference: {fileID: 21300000, guid: 70743f84039d69d408921f1a6bd2e5fe, type: 3}
     - target: {fileID: -6698157600365756712, guid: 496e4b86db2990948ae93bb5d87d162e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
