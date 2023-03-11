@@ -22,6 +22,7 @@ public class Mouvement : MonoBehaviour
     // Variables
     private float groundTime = 0;
     Rigidbody2D rigidbody2DMouton;
+    BoxCollider2D boxCollider2DMouton;
     SpriteRenderer sr;
     private bool jumping = false;
 
@@ -29,6 +30,7 @@ public class Mouvement : MonoBehaviour
     void Start()
     {
         rigidbody2DMouton = GetComponent<Rigidbody2D>();
+        boxCollider2DMouton = GetComponent<BoxCollider2D>();
         sr = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -65,13 +67,14 @@ public class Mouvement : MonoBehaviour
     */
     public bool isGrounded() {
         // Trouver les coins inférieurs du mouton
-        Vector2 lowerCenter = transform.position;
-        lowerCenter.y -= transform.localScale.y/2f;
-        Vector2 lowerLeft = new Vector2(lowerCenter.x - (transform.localScale.x + 0.1f), lowerCenter.y);
-        Vector2 lowerRight = new Vector2(lowerCenter.x + (transform.localScale.x + 0.1f), lowerCenter.y);
+        Bounds bounds = boxCollider2DMouton.bounds;
+        Vector2 lowerCenter = bounds.center;
+        lowerCenter.y -= bounds.extents.y;
+        Vector2 lowerLeftRayOrigin = new Vector2(lowerCenter.x + (bounds.extents.x / 2), lowerCenter.y);
+        Vector2 lowerRightRayOrigin = new Vector2(lowerCenter.x - (bounds.extents.x / 2), lowerCenter.y);
 
         // Vérifier si le mouton touche le sol
-        return Physics2D.Raycast(lowerLeft, Vector2.down, 0.1f, layerMask) || Physics2D.Raycast(lowerRight, Vector2.down, 0.1f, layerMask);
+        return Physics2D.Raycast(lowerLeftRayOrigin, Vector2.down, 0.1f, layerMask) || Physics2D.Raycast(lowerRightRayOrigin, Vector2.down, 0.1f, layerMask);
     }
 
     /**
